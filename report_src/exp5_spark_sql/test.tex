@@ -1,0 +1,99 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Define Article %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Using Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{ctex}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{float}
+\usepackage{minted}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  pdfstartview=Fit,
+  pdfcreator={Shit},
+pdfproducer={Big shit}}
+%\usepackage{amssymb}
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+%\usepackage{empheq}
+%\usepackage{mdframed}
+%\usepackage{booktabs}
+%\usepackage{lipsum}
+%\usepackage{color}
+%\usepackage{psfrag}
+%\usepackage{bm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Other Settings
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Page Setting %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\geometry{a4paper}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Plotting Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepgfplotslibrary{colorbrewer}
+\pgfplotsset{width=8cm,compat=1.18}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Title & Author %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{实验五: SPARK SQL 基础编程方法二}
+\author{胡嘉鑫 \and 102102145}
+\date{\today}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{实验目的}
+\begin{itemize}
+  \item 理解 SPARK 工作流程；
+  \item 掌握 SPARK SQL 基础编程方法；
+\end{itemize}
+
+\section{实验平台}
+\begin{itemize}
+  \item OS: Linux
+  \item Hadoop v3.1.3
+  \item JDK v1.8
+  \item Spark v3.4.0
+\end{itemize}
+
+\section{实验步骤}
+\subsection{用户搜索前三名统计}
+\subsubsection{Problem Description}
+用户搜索日志记录文件为 UserLogHot.txt, 格式为日期, 用户 id, 商品, 用户区域,
+搜索终端；
+\begin{enumerate}
+  \item 查询每天每用户点击某商品的次数, 输出到屏幕.
+  \item 将用户每天点击商品的次数汇总累加,
+    统计每用户在每天点击搜索每个商品的总次数,
+    输出 JSON 格式文件, JSON 元数据格式如下:
+    Date(日期)、UserID(用户 id)、Item(商品)、Count(该用户在当天点击该商品的次数)
+  \item 统计出用户搜索每商品的前 $ 3 $ 名:
+    用步骤 $ 2 $ 的 JSON 字符串, 构造DataFrame。
+    在 Spark SQL 注册临时表, 使用窗口函数 row\_number 统计出每用户搜索每商品的前
+    $ 3 $ 名, 将结果以 JSON 格式输出到屏幕或者文件。
+\end{enumerate}
+
+\subsubsection{Code}
+\subsubsection{Result}
+
+\subsection{NBA 数据统计}
+\subsubsection{Problem Description}
+\begin{enumerate}
+  \item 根据胜负场次统计 $ 15 $ - $ 16 $ 赛季都能够进入季后赛的球队
+    (查询东西部联盟排名前 $ 8 $ 的球队)
+  \item 针对最近两个赛季常规赛排名, 根据排名的变化, 找出东、西部进步幅度最大的球队。
+  \item 分析统计出 $ 15 $ - $ 16 $ 赛季命中率(第三列)、 三分球命中率(第六列)、
+    防守能力最强(失分越少防守越强)的三支球队.
+\end{enumerate}
+
+\subsubsection{Code}
+\subsubsection{Result}
+
+\section{出现的问题及其解决方案}
+没有问题.
+\end{document}
